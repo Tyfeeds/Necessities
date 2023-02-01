@@ -4,6 +4,7 @@ import Todolist from './components/todolist';
 import './App.css';
 
 
+
 function App() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
@@ -11,15 +12,27 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
 
+  // const LOCAL_STORAGE_KEY = 'todos'
+  // useEffect(() => {
+  //   const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  //   if (storedTodos) setTodos(storedTodos)
+  // }, [])
+
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+  // }, [todos, status])
+  // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+// }, [todos, status])
     //RUN ONCE WHEN THE APP STARTS
     useEffect (() => {
       getLocalTodos();
     }, [])
+
      //use effect
      useEffect (() =>{
       FilterHandler();
-      saveLocalTodos
-     },[todos, status])
+      saveLocalTodos();
+     }, [todos, status])
   //functipn
 
   const FilterHandler = ()=> {
@@ -51,13 +64,16 @@ function App() {
   }
   };
 
+
+  
+
   return (
     <div className="App">
        <header>
           <h1>Ty's daily necessities</h1>
       </header>
         <Form 
-          inputText={inputText} setInputText={setInputText} todos={todos} setTodos={setTodos} status={status} setStatus={setStatus} /> 
+          inputText={inputText} setInputText={setInputText} todos={todos} setTodos={setTodos} status={status} setStatus={setStatus}/> 
          <Todolist todos={todos} setTodos={setTodos} filteredTodos={filteredTodos}/> 
       
     </div>

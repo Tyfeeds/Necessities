@@ -10,10 +10,7 @@ const Todolist = ({todos, setTodos, filteredTodos}) => {
                 {filteredTodos.map((todo) => (
                     <Todo key={todo.id} todo={todo} todos={todos} setTodos={setTodos} text={todo.text}/>
                 ))}
-                {/* <Todo/>
-                <Todo/>
-                <Todo/>
-                <Todo/> */}
+              
             </ul>
         </div>
  

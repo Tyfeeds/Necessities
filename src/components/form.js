@@ -1,12 +1,20 @@
-import React from 'react'
+import React from 'react';
+import {  FaDownload } from 'react-icons/fa';
 
 const Form =  ({ inputText, setInputText, todos, setTodos, setStatus }) => {
     const inputTextHandler = (e) => {
-        // console.log("fuckreact");
+        // let message =[]
+        // if (setInputText.value ==='' || setInputText.value == null) 
+        //     message.push("Input is required")
+        console.log("fuckreact");
         setInputText(e.target.value)
     };
+    // let message =[]
     const submitTodoHandler = (e) => {
-        e.preventDefault();
+         e.preventDefault();
+        //  if (inputText === ''  || inputText == null)  return
+        if (inputText ==='' || inputText == null) return
+         
          setTodos  ([ ...todos,
            { text: inputText, completed: false, id: Math.random() * 1000}
        ]);
@@ -14,7 +22,7 @@ const Form =  ({ inputText, setInputText, todos, setTodos, setStatus }) => {
     };
     
     const statusHandler = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setStatus(e.target.value)
     } 
 
@@ -26,9 +34,9 @@ const Form =  ({ inputText, setInputText, todos, setTodos, setStatus }) => {
             <i className="fas fa-plus-square"></i>
         </button>
 
-        <div onChange={statusHandler} className='select'>
-            <select name="todos" className="filter-todo">
-                <option value="all">All</option>
+        <div onChange={statusHandler} className="select">
+               <select name="todos" className="filter-todo">
+                <option value="all">All <FaDownload></FaDownload></option>
                 <option value="completed">completed</option>
                 <option value="uncompleted">uncompleted</option>
             </select>
